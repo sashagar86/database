@@ -30,6 +30,7 @@ class QueryBuilder
             ->cols($data);
 
         $sth = $this->pdo->prepare($insert->getStatement());
+        $sth->execute($insert->getBindValues());
 
         return $this->pdo->lastInsertId();
     }
